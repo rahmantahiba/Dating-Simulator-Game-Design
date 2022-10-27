@@ -30,19 +30,21 @@ label start:
             $ m_name = renpy.input("What is your name?")
             $ m_name = m_name.strip()
 
-        elif m_name == "":
-            $ m_name = "Zephyr"
-            c "Your default name is Zephyr"
+        if m_name == "":
+            $ m_name = renpy.input("What is your name?", default = "Zephyr")
+            $ m_name = m_name.strip()
+            $ m_name = "Zephyr" #m_name "yay"
 
     label female:
 
-        if f_option == True:
+        if f_option == True: #nameerror in line 40
             $ f_name = renpy.input("What is your name?")
             $ f_name = f_name.strip() #to add space
 
-        elif f_name == "":
-            $ f_name = "Zephyrine"
-            c "Your default name is Zephyrine"
+        if f_name == "":
+            $ f_name = renpy.input("What is your name?", default = "Zephyrine")
+            $ f_name = f_name.strip()
+            $ f_name = "Zephyrine" #f_name "yay"
 
     pause
 return
