@@ -11,3 +11,8 @@ Goals:
 - Add signature game soundtrack for home screen and in-game 
 
 - Searching for ways to create animation. 
+
+
+[Dating Simulator Update Chart_Game Progress.docx](https://github.com/rahmantahiba/Dating-Simulator-Game-Design/files/10333891/Dating.Simulator.Update.Chart_Game.Progress.docx)
+
+[Dating Simulator Isekai Game Female Route.docx](https://github.com/rahmantahiba/Dating-Simulator-Game-Design/files/10333892/Dating.Simulator.Isekai.Game.Female.Route.docx)
