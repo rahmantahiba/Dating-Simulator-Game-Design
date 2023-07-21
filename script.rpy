@@ -5,7 +5,8 @@ Make sure to follow the game script on google doc.
 """
 
 define c = Character("Creator", color="#FFD700")
-define f = Character("[female]", image="female")
+define f = Character("[female]", image="female", color="#FF69B4")
+define m = Character("[male]", image="male", color="#30D5C8")
 image define female normal = "female happy.png"
 
 define f_option = None
@@ -19,47 +20,40 @@ label start:
 
     label gender:
 
-    c "Let's get started! What is your gender?"
+        c "Let's get started! What is your gender?"
 
-    menu:
-        "Male":
-            $ m_option = True
-            jump male
-        "Female":
-            $ f_option = True
-            jump female
+        menu:
+            "Male":
+                $ m_option = True
+                jump male
+            "Female":
+                $ f_option = True
+                jump female
 
     label male:
 
-        if m_option:
-            $ m_name = renpy.input("What is your name? Press enter to set a default name")
+        if m_option is not None:
+            $ m_name = renpy.input("What is your name? Type Lucas if you wish to use the default name.")
             $ m_name = m_name.strip()
-            m_name "So you have selected my route. Thank you for following my journey"
-
-        if m_name == "":
-            $ m_name = renpy.input("What is your name? Press enter to set a default name", default = "Lucas")
-            $ m_name = m_name.strip()
-            $ m_name = "Lucas"
-            m_name "So you have selected me. Thank you for following my journey player."
+            jump chapter1
 
     label female:
 
-        if f_option:
-            $ f_name = renpy.input("What is your name? Press enter to set a default name")
+        if f_option is not None:
+            $ f_name = renpy.input("What is your name? Type Lisette if you wish to use the default name.")
             $ f_name = f_name.strip()
-            f_name "So you have selcted my route. Thank you for following my journey"
-            jump fscene1
+            jump chapter1
 
-        if f_name == "":
-            $ f_name = renpy.input("What is your name? Press enter to set a default name", default = "Lisette")
-            $ f_name = f_name.strip()
-            $ f_name = "Lisette"
-            f_name "So you have selected my route. Thank you for following my journey"
-            jump fscene1
+    label chapter1:
 
-    label fscene1:
+        if f_name:
+            f_name "Thank you for following my journey, [f_name]"
+        else:
+            m_name "Thank you for following my journey, [m_name]"
+
 
         c "Let the journey begin!"
+
 
         "Chapter 1: An Interesting Turn of Events"
 
